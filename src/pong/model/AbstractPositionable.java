@@ -1,5 +1,7 @@
 package pong.model;
 
+
+//abstract class for all objects in the game such as paddles, floor and ceiling
 public abstract class AbstractPositionable implements IPositionable{
 
     private double x,y;
@@ -9,11 +11,9 @@ public abstract class AbstractPositionable implements IPositionable{
     public AbstractPositionable(double x, double y) {
         this.x = x;
         this.y = y;
-
         move();
     }
 
-    @Override
     public double getX() {
         return x;
     }
@@ -35,14 +35,13 @@ public abstract class AbstractPositionable implements IPositionable{
         this.y = y;
     }
 
-    @Override
+    //all subclasses implements their own getwidth and height, these are just for the interface
     public double getWidth() {
-        return 1;
+        return 0;
     }
 
-    @Override
     public double getHeight() {
-        return 1;
+        return 0;
     }
 
     public double getDy() {
@@ -60,5 +59,4 @@ public abstract class AbstractPositionable implements IPositionable{
     public void setDx(double dx) {
         this.dx = dx;
     }
-
 }

@@ -18,6 +18,7 @@ public class Paddle extends AbstractPositionable{
        super(x, y);
     }
 
+    //moves the paddle and also checks so it doesnt go out of the gamescreen
     @Override
     public void move() {
 

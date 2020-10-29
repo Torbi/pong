@@ -94,7 +94,7 @@ a.  Add checks, in update(), to create a new ball if the actual escapes. Also
     for collision detection, should be done in one place and one place only.
 
 6.  Add event handling from model to GUI, using Event and EventService. If a collision
-    occurs in model send an event to GUI to inform GUI to play a sound.
+    occurs in model send a event to GUnI to inform GUI to play a sound.
 
 7. (Optional) Add some twist(s) to the game!
 

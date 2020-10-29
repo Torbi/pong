@@ -51,23 +51,15 @@ public class PongGUI extends Application implements IEventHandler {
         switch (kc) {
             case UP:
                 pong.setSpeedRightPaddle(-PADDLE_SPEED);
-                out.println("TRYCKER UUUPPP");
                 break;
             case DOWN:
                 pong.setSpeedRightPaddle(PADDLE_SPEED);
-                out.println("TRYCKER NEER");
-
                 break;
             case Q:
                 pong.setSpeedLeftPaddle(-PADDLE_SPEED);
-                out.println("TRYCKER QQQQ");
-
                 break;
             case A:
-
                 pong.setSpeedLeftPaddle(PADDLE_SPEED);
-                out.println("TRYCKER AA");
-
                 break;
             default:  // Nothing
         }
@@ -131,6 +123,7 @@ public class PongGUI extends Application implements IEventHandler {
         Ceiling ceiling = new Ceiling(0);
         Floor floor = new Floor(GAME_HEIGHT);
 
+        //Creates all objects and connect to Pong
         pong = new Pong(ball, rightPaddle, leftPaddle, ceiling, floor);
 
         // Map objects to sprites
@@ -156,10 +149,12 @@ public class PongGUI extends Application implements IEventHandler {
     public void onModelEvent(ModelEvent evt) {
         if (evt.type == ModelEvent.Type.NEW_BALL) {
             // TODO Optional
+            //Make fun sound, happy FEET
         } else if (evt.type == ModelEvent.Type.BALL_HIT_PADDLE) {
             assets.ballHitPaddle.play();
         } else if (evt.type == ModelEvent.Type.BALL_HIT_WALL_CEILING) {
            // TODO Optional
+            //Maybe not same sound
             assets.ballHitPaddle.play();
         }
     }

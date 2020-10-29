@@ -19,9 +19,14 @@ public class Ball extends AbstractPositionable{
         super(x, y);
     }
 
+    /*
+    Creates a new ball with a random speed and direction
+    betwen 1.5 and 3 for dx
+    1.25 and 2.5 for dy
+     */
     public void setRandom() {
         double randX = ((Math.random() + 1) * 1.5);
-        double randY = ((Math.random() + 1) * 1.5);
+        double randY = ((Math.random() + 1) * 1.25);
         int rndDirX = new Random().nextBoolean()? 1 : -1;
         int rndDirY = new Random().nextBoolean()? 1 : -1;
         setDx(randX * rndDirX);

@@ -54,6 +54,9 @@ public class Pong {
 
     private long timeForLastHit = System.currentTimeMillis();         // To avoid multiple collisions
 
+    //main gameloop with logic
+    //checks if ball has left the gameplan
+    //also checks all the collisions and makes the ball and paddles move
     public void update(long now) {
 
         // tODO Gamelogic here
@@ -67,19 +70,19 @@ public class Pong {
             ball = new Ball(GAME_WIDTH / 2 - ball.getWidth() / 2, GAME_HEIGHT / 2 - ball.getHeight() / 2);
             ball.setRandom();
         }
-        //checkYPaddles(); //check Y on paddles before moving
         leftPaddle.move();
         rightPaddle.move();
         ball.move();
         //Check collision med celling och floor
         checkCollision();
+        //to avoid multiple hits in a short span
         if(System.currentTimeMillis() >= timeForLastHit + HALF_SEC){
             //collitions med paddles
             checkCollisionPaddle();
         }
-        System.out.println("SPEED" + ball.getDx() + " " + ball.getDy());
     }
 
+    //collision between ball and paddles, play sound upon hit and changes direction
     public void checkCollisionPaddle() {
         if ((ball.getX()  > rightPaddle.getX() - Ball.WIDTH)
                 && (ball.getY() + ball.getHeight() > rightPaddle.getY())
@@ -98,6 +101,7 @@ public class Pong {
         }
     }
 
+    //collision check between ball and ceilings and floor, also plays sound upon collision
     public void checkCollision() {
         if (ball.getY() < 0) {
             ball.setDy(ball.getDy() * -1 * BALL_SPEED_FACTOR);
@@ -130,13 +134,10 @@ public class Pong {
     public void setSpeedRightPaddle(double dy) {
         // TODO
         rightPaddle.setDy(dy);
-        System.out.println("MAKING MOVE");
     }
 
     public void setSpeedLeftPaddle(double dy) {
         // TODO
         leftPaddle.setDy(dy);
-        System.out.println("MAKING MOVE");
-
     }
 }
